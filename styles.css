@@ -53,6 +53,8 @@ div.view {
 	backface-visibility: hidden;
 	-webkit-backface-visibility: hidden;
 	-webkit-transform-style: preserve-3d;
+	-moz-backface-visibility: hidden;
+	-moz-transform-style: preserve-3d;
 
 	-webkit-border-radius: 6px;
 	-khtml-border-radius: 6px;
@@ -71,15 +73,20 @@ div.view {
 #game-board li.hidden {
 	-webkit-transform: rotateY(0deg);
 	-webkit-transform-style: preserve-3d;
+	-moz-transform: rotateY(0deg);
+	-moz-transform-style: preserve-3d;
 }
 
 #game-board li.visible {
 	-webkit-transform: rotateY(180deg);
 	-webkit-transform-style: preserve-3d;
+	-moz-transform: rotateY(180deg);
+	-moz-transform-style: preserve-3d;
 }
 
 #game-board li div.back {
 	-webkit-transform: rotateY(0deg);
+	-moz-transform: rotateY(0deg);
 	font-size: 0.2em;
 	font-weight: bold;
 	background-color: #90C140;
@@ -88,6 +95,7 @@ div.view {
 
 #game-board li div.front {
 	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
 	background-color: #fff;
 }
 
