@@ -1,60 +1,14 @@
-/* con la estructura mas basica posible */
+/* BASIC SCRIPT - todas las tarjetas definidas en html */
 
-function showInstructions(){
-    // Esconder todas las vistas
-    // Mostrar instrucciones
-    // set back to menu handler
-}
-
-function showScore(){
-    // Esconder todas las vistas
-    // Mostrar score
-    // set play again handler
-}
 
 function startGame(){
-    // Esconder todas las vistas
-    // Mostrar game view
-    initBoard();  
-}
-
-
-function initBoard(){
     // sacados de http://www.danshort.com/HTMLentities/index.php
     var chars = ['A','&infin;','C','D','&times;','&oplus;','&#x272D;'];
     var charCount = chars.length;  
     
     var board = document.getElementById('game-board');
     
-    // remove all current cards
-    board.innerHTML = '';
-    cards = [];
     
-    for (var u = 0; u<2; u++)
-    
-        for (var i = 0; i < charCount; i++){
-            var card = document.createElement('li');
-            card.className = "hidden";  // class names store card id
-            
-            var back = document.createElement('div');
-            back.className = 'back';
-            back.innerHTML = 'Zemoga';
-            
-            var front = document.createElement('div');
-            front.className= 'front';
-            front.innerHTML = chars[i];
-           
-            
-            
-            card.appendChild(back);
-            card.appendChild(front);
-            
-            // add listener
-            card.addEventListener('click',cardClicked,true);
-            
-            cards.push(card);
-            board.appendChild(card); 
-        }
 }
 
 function cardClicked(){
