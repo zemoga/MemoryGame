@@ -18,20 +18,26 @@ function startGame(){
     initBoard();  
 }
 
+function randOrd(){
+	return (0.5 - Math.random()); 
+}
+
+var chars = ['A','&infin;','C','D','&times;','&oplus;','&#x272D;'];
+var board = document.getElementById('game-board');
 
 function initBoard(){
     // sacados de http://www.danshort.com/HTMLentities/index.php
-    var chars = ['A','&infin;','C','D','&times;','&oplus;','&#x272D;'];
+   
     var charCount = chars.length;  
-    
-    var board = document.getElementById('game-board');
     
     // remove all current cards
     board.innerHTML = '';
     cards = [];
     
-    for (var u = 0; u<2; u++)
-    
+    for (var u = 0; u<2; u++){
+    	
+    	chars.sort(randOrd);
+        
         for (var i = 0; i < charCount; i++){
             var card = document.createElement('li');
             card.className = "hidden";  // class names store card id
@@ -51,10 +57,14 @@ function initBoard(){
             
             // add listener
             card.addEventListener('click',cardClicked,true);
+            card.addEventListener("webkitTransitionEnd", resetGameHandler, true);
             
             cards.push(card);
             board.appendChild(card); 
         }
+
+     }
+     
 }
 
 function cardClicked(){
@@ -67,6 +77,7 @@ function cardClicked(){
 var clickedCards = []; 
 var score = 0;
 var cards = [];
+var matched = 0;
 
 
 function getContentByCard(card){
@@ -76,17 +87,32 @@ function getContentByCard(card){
     return value;
 }
 
+function resetGameHandler(event){
+	 if(matched == chars.length){
+    	alert("YOU WIN !!");
+    	removeCards();
+	}
+}
+
+function removeCards(){
+	for(var i = cards.length - 1; i > -1; i--){
+		board.removeChild(board.children[i]);
+	}
+	initBoard();
+}
+
 function checkClickedCards(){
     if (clickedCards.length == 2){
         // there are two cards selected
         
         // if cards match
-        console.log()
+        // console.log()
         if(getContentByCard(clickedCards[0]) == getContentByCard(clickedCards[1])){
             // set cards visible anim
             clickedCards[1].className = clickedCards[0].className = clickedCards[0].className + " selected";
             score++;
-           clickedCards = [];
+            matched++;
+           	clickedCards = [];
         } else {
             setTimeout(function(){
                 //if cards dont match
