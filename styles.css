@@ -1,29 +1,48 @@
 body {
+	margin:0;
+	padding:0;
 	font-family: sans-serif;
 	color: #333;
-	background-color: #8CC63F;
+	background: #8CC63F url(../img/iphone-background.png) no-repeat center 0 scroll;
 }
 
-h1, h2, h3, h4, h5, h6 {
+.image-replacement{
+	display: block;
+	text-indent: -9999px;
+	background-image: url(../img/sprite-sheet.png);
+	background-repeat: no-repeat;
+}
+
+a{
+	text-decoration: none;
+}
+
+p{
+	padding: 10px;
+}
+
+ul{
+	padding: 0;
+	margin:0;
+}
+
+li{
+	list-style: none;
+}
+
+h1, h2, h3{
+	margin: 0;
+	padding: 0;
 	font-weight: bold;
-	text-shadow: 0 1px 1px #fff;
+	font-size: 1em;
+	color:#fff;
+	text-align: center;
+	position: relative;
 }
 
-h1 {
-	font-size: 2em;
-}
-
-h2 {
-	font-size: 1.7em;
-}
-
-div.view {
-	/* display:none; */
-	border: 1px solid red;
-	/* mistrastanto */
-}
-
-#game-board {
+h1,h2, .back{
+	color:#fff;
+	text-shadow: 0 -1px 1px #5D832A, 0 1px 1px #5D832A;
 }
 
 #game-board {
@@ -33,12 +52,14 @@ div.view {
 }
 
 #game-board li {
+	
+	cursor:pointer;
+	
 	float: left;
 	margin: 4px;
 	color: #444;
 	text-align: center;
 	line-height: 2em;
-	font-size: 2em;
 
 	-webkit-transition: 0.5s;
 	-moz-transition: 0.5s;
@@ -97,12 +118,86 @@ div.view {
 	-webkit-transform: rotateY(180deg);
 	-moz-transform: rotateY(180deg);
 	background-color: #fff;
+	text-shadow: 2px 2px 5px #aaa;
 }
+
+
+/**
+ * 	Headers
+ */
+
+
+section header{
+	height:42px;
+	border-bottom: 1px solid #517225;
+	border-top: 1px solid  #B0F759;
+	position:relative;
+	
+	background: #c8f76a; /* Old browsers */
+	background: -moz-linear-gradient(top, #c8f76a 0%, #93cb49 51%, #7aad37 54%, #76a735 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c8f76a), color-stop(51%,#93cb49), color-stop(54%,#7aad37), color-stop(100%,#76a735)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #c8f76a 0%,#93cb49 51%,#7aad37 54%,#76a735 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #c8f76a 0%,#93cb49 51%,#7aad37 54%,#76a735 100%); /* Opera11.10+ */
+	background: -ms-linear-gradient(top, #c8f76a 0%,#93cb49 51%,#7aad37 54%,#76a735 100%); /* IE10+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c8f76a', endColorstr='#76a735',GradientType=0 ); /* IE6-9 */
+	background: linear-gradient(top, #c8f76a 0%,#93cb49 51%,#7aad37 54%,#76a735 100%); /* W3C */
+}
+
+.plus-button{
+	position: absolute;
+	right: 7px;
+	top:6px;
+	width: 33px;
+	height: 31px;
+	background-position: -162px 0;
+}
+
+.back-button{
+	width: 85px;
+	height: 31px;
+	background-position: -203px 0;
+	position: absolute;
+	left:10px;
+	top:6px;
+	z-index: 1;
+}
+
+section header h2{
+	position: relative;
+	top:14px;
+}
+
+.zemoga-logo{
+	width: 215px;
+	height: 199px;
+	background-position: 0 -56px;
+	margin:0 auto;
+}
+
+.menu-list{
+	width: 161px;
+	margin: 0 auto;
+}
+
+.menu-button{
+	display:block;
+	width: 161px;
+	height: 45px;
+	margin-bottom: 10px;
+	background: transparent url(../img/sprite-sheet.png) no-repeat 0 0 scroll;
+	color: #66902E;
+	text-align: center;
+	position: relative;
+	line-height: 40px;
+}
+
+
 
 /* Desktop */
 #game-board li {
-	width: 80px;
-	height: 80px;
+	width: 120px;
+	height: 120px;
+	font-size: 4em;
 }
 
 /* iPad */
@@ -110,16 +205,36 @@ div.view {
 	#game-board li {
 		width: 60px;
 		height: 60px;
-		}
+		font-size: 2em;
+	}
 
 }
 
 /* iPhone */
-@media all and (max-width: 300px) {
+@media all and (max-width: 420px) {
 	#game-board li {
 		width: 40px;
 		height: 40px;
-		}
+		font-size: 1.4em;
+	}
+	
+	body{
+		width: 320px;
+		margin:0 auto;
+		overflow: hidden;
+		position: relative;
+	}
+	
+	#sections-container{
+		width: 960px;
+		overflow: hidden;
+		position: absolute;
+	}
+	
+	section{
+		width: 320px;
+		float: left;
+	}
 
 }
 
