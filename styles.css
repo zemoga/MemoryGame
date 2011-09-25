@@ -3,7 +3,7 @@ body {
 	padding:0;
 	font-family: sans-serif;
 	color: #333;
-	background: #8CC63F url(../img/iphone-background.png) center top no-repeat;
+	background: #8CC63F url(../img/background.png) repeat-x;
 }
 
 .image-replacement{
@@ -205,6 +205,16 @@ section header h2{
 
 
 /* Desktop */
+
+#game:target{
+	-webkit-transition: 0.5s;
+	-moz-transition: 0.5s;
+	-o-transition: 0.5s;
+	-ms-transition: 0.5s;
+	transition: 0.5s;
+}
+
+
 #game-board li {
 	width: 120px;
 	height: 120px;
@@ -214,9 +224,9 @@ section header h2{
 /* iPad */
 @media all and (max-width: 800px) and (min-width: 300px) {
 	#game-board li {
-		width: 80px;
-		height: 80px;
-		font-size: 2em;
+		width: 90px;
+		height: 90px;
+		font-size: 4em;
 	}
 
 }
@@ -235,7 +245,7 @@ section header h2{
 	}
 	
 	body{
-		background-position: 0 0;
+		
 		width: 320px;
 		height:420px;
 		margin:0 auto;
