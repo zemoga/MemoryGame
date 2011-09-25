@@ -2,30 +2,29 @@
 <html>
     <head>
 		<title>Memory Game</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<link rel="stylesheet" href="styles.css">
-		<script>
-			document.getElementById("init-button").addEventListener('click', 
-				function(){
-					document.getElementById('sections-container').style.left = '-640px';
-				}, false);
-		</script>
     </head>
     <body>
     	<div id="sections-container">
+    		
+    		<!-- Landing screen -->
 	        <section id="main-menu" class="view" role="main">
 	        	<header>
-	        		<h2>Memory</h2>
+	        		<h2>Zemoga - Memory</h2>
 	        		<a class="plus-button image-replacement" href="#">More...</a>
 	        	</header>
 				<nav>
 					<h3 class="zemoga-logo image-replacement">Zemoga</h3>
 					<ul class="menu-list">
 						<li><a id="init-button" class="menu-button" href="#">Iniciar juego</a></li>
-						<li><a id="instructions-button" class="menu-button" href="#">Instrucciones</a></li>	
+						<li><a id="instructions-button" class="menu-button" href="#">Instrucciones</a></li>
+						<li><a id="score-button" class="menu-button" href="#">Puntaje</a></li>	
 					</ul>
 				</nav>
 			</section>
 			
+			<!-- Instructions screen -->
 			<section id="instructions" class="view">
 				<header>
 					<a class="back-button image-replacement" href="#">Volver</a>
@@ -34,9 +33,10 @@
 			    <p>Debes seleccionar parejas en el menor tiempo posible!</p>
 			</section>
 			
+			<!-- Game screen -->
 	        <section id="game" class="view">
 	        	<header>
-	        		<a class="back-button image-replacement" href="#">Volver</a>
+	        		<a class="back-button image-replacement" href="#sections-container">Volver</a>
 	        		<h2>Juega ahora!</h2>	
 	        	</header>
 	            <ul id="game-board">
@@ -46,9 +46,14 @@
 	                </li>
 	            </ul>
 	        </section>
+	        
+	        <!-- Score screen -->
 	        <section id="score" class="view">
-	            <h2>Puntaje</h2>
-	            <a href="#">Jugar otra vez</a>
+	        	<header>
+	        		<a class="back-button image-replacement" href="#sections-container">Volver</a>
+	            	<h2>Tu puntaje</h2>
+	            </header>
+	            <span id="score-label">500</span>
 	        </section>
 		</div>
 		<script src="script.js"></script>

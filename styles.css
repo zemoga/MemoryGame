@@ -3,7 +3,7 @@ body {
 	padding:0;
 	font-family: sans-serif;
 	color: #333;
-	background: #8CC63F url(../img/iphone-background.png) no-repeat center 0 scroll;
+	background: #8CC63F url(../img/iphone-background.png) center top no-repeat;
 }
 
 .image-replacement{
@@ -40,7 +40,7 @@ h1, h2, h3{
 	position: relative;
 }
 
-h1,h2, .back{
+h1,h2, .back, #score{
 	color:#fff;
 	text-shadow: 0 -1px 1px #5D832A, 0 1px 1px #5D832A;
 }
@@ -177,6 +177,8 @@ section header h2{
 .menu-list{
 	width: 161px;
 	margin: 0 auto;
+	position: relative;
+	top: -40px;
 }
 
 .menu-button{
@@ -191,6 +193,15 @@ section header h2{
 	line-height: 40px;
 }
 
+#score-label{
+	margin-top:20px;
+	display:block;
+	color: #fff;
+	font-size: 3em;
+	text-align: center;
+	font-weight: bold;
+}
+
 
 
 /* Desktop */
@@ -203,8 +214,8 @@ section header h2{
 /* iPad */
 @media all and (max-width: 800px) and (min-width: 300px) {
 	#game-board li {
-		width: 60px;
-		height: 60px;
+		width: 80px;
+		height: 80px;
 		font-size: 2em;
 	}
 
@@ -212,21 +223,28 @@ section header h2{
 
 /* iPhone */
 @media all and (max-width: 420px) {
+	
+	#game-board{
+		margin: 25px 0 0 25px;
+	}
+	
 	#game-board li {
-		width: 40px;
-		height: 40px;
-		font-size: 1.4em;
+		width: 60px;
+		height: 60px;
+		font-size: 1.8em;
 	}
 	
 	body{
+		background-position: 0 0;
 		width: 320px;
+		height:420px;
 		margin:0 auto;
 		overflow: hidden;
 		position: relative;
 	}
 	
 	#sections-container{
-		width: 960px;
+		width: 1380px;
 		overflow: hidden;
 		position: absolute;
 	}
@@ -235,6 +253,13 @@ section header h2{
 		width: 320px;
 		float: left;
 	}
-
+	
+	#sections-container{
+		-webkit-transition: 0.5s;
+		-moz-transition: 0.5s;
+		-o-transition: 0.5s;
+		-ms-transition: 0.5s;
+		transition: 0.5s;
+	}
 }
 
