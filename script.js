@@ -1,23 +1,5 @@
 /* con la estructura mas basica posible */
 
-function showInstructions(){
-    // Esconder todas las vistas
-    // Mostrar instrucciones
-    // set back to menu handler
-}
-
-function showScore(){
-    // Esconder todas las vistas
-    // Mostrar score
-    // set play again handler
-}
-
-function startGame(){
-    // Esconder todas las vistas
-    // Mostrar game view
-    initBoard();  
-}
-
 function randOrd(){
 	return (0.5 - Math.random()); 
 }
@@ -210,5 +192,5 @@ for(var i = 0; i < backButtons.length; i++){
 
 window.addEventListener('load', function(){
 	window.scrollTo(0,0);
-	startGame();
+	initBoard();
 }, false);
