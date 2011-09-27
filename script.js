@@ -57,7 +57,6 @@ function initBoard(){
             
             // add listener
             card.addEventListener('click',cardClicked,true);
-            card.addEventListener("webkitTransitionEnd", resetGameHandler, true);
             
             cards.push(card);
             board.appendChild(card); 
@@ -67,11 +66,47 @@ function initBoard(){
      
 }
 
+var limit = "1:30";
+var parseLimit = [];
+var finalTime = 0;
+var currentMin = 0;
+var currentSec = 0;
+var currentTime = "";
+var firstCardClicked = false;
+
 function cardClicked(){
+	if(!firstCardClicked){
+		parseLimit = limit.split(":");
+		finalTime = (parseLimit[0] * 60) + (parseLimit[1] * 1);
+		beginTimer();
+		firstCardClicked = true;
+	}
     clickedCards.push(this); // this is card 'li' element
     // play show animation
     this.className = this.className.replace('hidden','visible');
     checkClickedCards();
+}
+
+function beginTimer(){
+	if(currentTime == "00"){
+		resetGame("lose");
+		return;
+	}
+	if(matched == chars.length){
+		resetGame("win");
+		return;
+	}
+	finalTime-=1;
+	currentMin = Math.floor(finalTime / 60);
+	currentSec = finalTime % 60;
+	currentSec = (currentSec < 10) ? "0" + currentSec : currentSec;
+	if(currentMin != 0){
+		currentTime = "0" + currentMin + ":" + currentSec;
+	}else{
+		currentTime = currentSec;
+	}
+	document.getElementById("counter").innerHTML = "TIEMPO RESTANTE " + currentTime;
+	setTimeout("beginTimer()", 1000);
 }
 
 var clickedCards = []; 
@@ -87,12 +122,24 @@ function getContentByCard(card){
     return value;
 }
 
-function resetGameHandler(event){
-	 if(matched == chars.length){
-    	alert("FELICITACIONES\rJuega de nuevo");
-    	removeCards();
-    	matched = 0;
+function resetGame(status){
+	switch(status){
+		case "win":
+			alert("FELICITACIONES\rJuega de nuevo");
+			break;
+		case "lose":
+			alert("PERDISTE\rIntenta de nuevo");
+			break;
 	}
+	removeCards();
+ 	matched = 0;
+ 	parseLimit = [];
+ 	finalTime = 0;
+ 	currentMin = 0;
+ 	currentSec = 0;
+ 	currentTime = "";
+ 	firstCardClicked = false;
+ 	document.getElementById("counter").innerHTML = "";
 }
 
 function removeCards(){
@@ -165,10 +212,3 @@ window.addEventListener('load', function(){
 	window.scrollTo(0,0);
 	startGame();
 }, false);
-
-
-
-
-
-
-
