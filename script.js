@@ -189,7 +189,6 @@ for(var i = 0; i < backButtons.length; i++){
 	}, false);
 }
 
-
 window.addEventListener('load', function(){
 	window.scrollTo(0,0);
 	initBoard();
